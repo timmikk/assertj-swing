@@ -17,8 +17,7 @@ import static org.assertj.swing.awt.AWT.centerOf;
 import static org.assertj.swing.edt.GuiActionRunner.execute;
 import static org.assertj.swing.timing.Pause.pause;
 
-import java.awt.Component;
-import java.awt.Point;
+import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionAdapter;
 
@@ -108,6 +107,7 @@ public abstract class InputEventGenerator_TestCase extends SequentialEDTSafeTest
 
     private MyWindow(Class<?> testClass) {
       super(testClass);
+      setMinimumSize(new Dimension(100, 100));
       addComponents(textBox);
     }
   }
