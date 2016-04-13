@@ -76,7 +76,7 @@ public class JMenuItemDriver_click_Test extends RobotBasedTestCase {
       setJMenuBar(new JMenuBar());
       menuFile.add(menuNew);
       getJMenuBar().add(menuFile);
-      setPreferredSize(new Dimension(80, 60));
+      setPreferredSize(new Dimension(80, 100));
     }
   }
 }
