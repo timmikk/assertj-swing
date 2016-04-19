@@ -32,7 +32,7 @@ public class JTableDriver_requireSelectedRows_Test extends JTableDriver_TestCase
     selectRows(6, 8);
     thrown.expect(AssertionError.class);
     thrown.expectMessage("property:'selectedRows'");
-    thrown.expectMessage("Expecting:\n <[6, 7, 8]>\nto contain:\n <[0, 1]>\nbut could not find:\n <[0, 1]>");
+    thrown.expectMessage(String.format("Expecting:%n <[6, 7, 8]>%nto contain:%n <[0, 1]>%nbut could not find:%n <[0, 1]>"));
     driver.requireSelectedRows(table, 0, 1);
   }
 
