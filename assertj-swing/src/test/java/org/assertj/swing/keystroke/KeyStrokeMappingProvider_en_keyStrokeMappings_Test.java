@@ -12,10 +12,14 @@
  */
 package org.assertj.swing.keystroke;
 
+import java.awt.im.InputContext;
 import java.util.Collection;
+import java.util.Locale;
 
 import javax.swing.KeyStroke;
 
+import org.junit.Assume;
+import org.junit.Before;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import org.junit.runners.Parameterized.Parameters;
@@ -29,6 +33,11 @@ import org.junit.runners.Parameterized.Parameters;
 public class KeyStrokeMappingProvider_en_keyStrokeMappings_Test extends KeyStrokeMappingProvider_TestCase {
   public KeyStrokeMappingProvider_en_keyStrokeMappings_Test(char character, KeyStroke keyStroke) {
     super(character, keyStroke);
+  }
+
+  @Before
+  public void before() {
+    Assume.assumeTrue(InputContext.getInstance().getLocale() == Locale.ENGLISH);
   }
 
   @Parameters
