@@ -51,6 +51,8 @@ public class DialogMatcher_matches_byTitleAndShowing_Test extends SequentialEDTS
     TestDialog dialog = TestDialog.createAndShowNewDialog(window);
     DialogMatcher matcher = DialogMatcher.withTitle("Hello").andShowing();
     assertThat(matcher.matches(dialog)).isFalse();
+    window.dispose();
+    dialog.dispose();
   }
 
   @Test
