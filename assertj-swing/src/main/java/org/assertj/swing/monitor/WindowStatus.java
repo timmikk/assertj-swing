@@ -133,7 +133,10 @@ class WindowStatus {
     if (!shouldResize(window)) {
       return;
     }
-    window.setSize(MINIMUM_WINDOW_SIZE);
+    Insets insets = window.getInsets();
+    int w = MINIMUM_WINDOW_SIZE.width + insets.left + insets.right;
+    int h = MINIMUM_WINDOW_SIZE.height + insets.top + insets.bottom;
+    window.setSize(w, h);
   }
 
   @RunsInCurrentThread
