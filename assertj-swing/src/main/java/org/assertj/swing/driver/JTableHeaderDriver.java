@@ -91,7 +91,7 @@ public class JTableHeaderDriver extends JComponentDriver {
   public void clickColumn(@Nonnull JTableHeader tableHeader, int columnIndex, @Nonnull MouseButton button, int times) {
     Point p = pointAtIndex(tableHeader, columnIndex, location);
     robot.click(tableHeader, p, button, times);
-    pause(300); // needs more time when sorting a column (JDK 1.6)
+    pause(400); // needs more time when sorting a column (JDK 1.6)
   }
 
   /**
