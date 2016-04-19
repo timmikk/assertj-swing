@@ -19,6 +19,7 @@ import static org.assertj.swing.edt.GuiActionRunner.execute;
 
 import java.awt.BorderLayout;
 import java.awt.Component;
+import java.awt.GraphicsEnvironment;
 
 import javax.swing.Box;
 import javax.swing.JButton;
@@ -61,7 +62,7 @@ public class Scrolling_scrollToVisible_Test extends RobotBasedTestCase {
           MyWindow w = new MyWindow();
           display(w);
           w.setLocation(0, 0);
-          w.setSize(w.getToolkit().getScreenSize());
+          w.setSize(GraphicsEnvironment.getLocalGraphicsEnvironment().getMaximumWindowBounds().getSize());
           return w;
         }
       });
