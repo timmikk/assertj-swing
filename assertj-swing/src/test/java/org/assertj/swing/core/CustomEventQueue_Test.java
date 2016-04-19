@@ -34,7 +34,13 @@ public class CustomEventQueue_Test extends BasicRobot_TestCase {
   @Override
   void beforeShowingWindow() {
     robot().settings().simpleWaitForIdle(true);
-    Toolkit.getDefaultToolkit().getSystemEventQueue().push(newEventQueue);
+
+    //Event queue needs to be changed in EDT. otherwise it can slow other tests (e.g. FEST284_scrollToVisibleAutomatically_Test)
+    //This is workaround for the bug: JDK-7097333 : Adding an EventQueue on the AWT queue prevents JVM from terminate on exit
+    javax.swing.SwingUtilities.invokeLater(() -> {
+      EventQueue queue = Toolkit.getDefaultToolkit().getSystemEventQueue();
+      queue.push(newEventQueue);
+    });
   }
 
   @After
