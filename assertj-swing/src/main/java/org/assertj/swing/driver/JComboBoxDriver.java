@@ -12,6 +12,8 @@
  */
 package org.assertj.swing.driver;
 
+import static java.awt.event.KeyEvent.VK_ENTER;
+import static java.awt.event.KeyEvent.VK_TAB;
 import static javax.swing.text.DefaultEditorKit.selectAllAction;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Fail.fail;
@@ -406,6 +408,7 @@ public class JComboBoxDriver extends JComponentDriver {
     }
     focusAndWaitForFocusGain(editor);
     robot.enterText(text);
+    pressAndReleaseKeys(comboBox, VK_ENTER);
   }
 
   /**
