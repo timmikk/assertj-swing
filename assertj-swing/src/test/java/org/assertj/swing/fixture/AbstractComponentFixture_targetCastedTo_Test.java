@@ -22,6 +22,7 @@ import javax.swing.JTable;
 
 import org.assertj.swing.core.Robot;
 import org.assertj.swing.driver.ComponentDriver;
+import org.assertj.swing.test.builder.JTables;
 import org.junit.Test;
 
 /**
@@ -33,7 +34,7 @@ public class AbstractComponentFixture_targetCastedTo_Test {
 
   @Test
   public void should_Return_Object_Reference_Passed_Via_Constructor() {
-    Component table = new JTable();
+    Component table = JTables.table().createNew();
     ConcreteComponentFixture fixture = new ConcreteComponentFixture(table);
 
     assertThat(fixture.targetCastedTo(JTable.class)).isSameAs(table);
@@ -41,7 +42,7 @@ public class AbstractComponentFixture_targetCastedTo_Test {
 
   @Test
   public void should_Return_Object_Of_Type_The_Component_Is_Casted_To() {
-    Component table = new JTable();
+    Component table = JTables.table().createNew();
     ConcreteComponentFixture fixture = new ConcreteComponentFixture(table);
 
     // check that it compiles
