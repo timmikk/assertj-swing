@@ -65,7 +65,7 @@ public class ExpectedException implements TestRule {
   public void expectAssertionError(String property, String content, Pattern pattern) {
     expect(AssertionError.class);
     expectMessageToContain("property:'" + property + "'");
-    expectMessageToContain(String.format("%nExpecting:%n \"" + content + "\"%nto match pattern:%n \"" + pattern.pattern() + "\""));
+    expectMessageToContain(String.format("%nExpecting:%n \"%s\"%nto match pattern:%n \"%s\"", content, pattern.pattern()));
   }
 
   private String buildStringForMessage(String[] array) {
